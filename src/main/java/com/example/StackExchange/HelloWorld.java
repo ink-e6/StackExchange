@@ -1,15 +1,12 @@
 package com.example.StackExchange;
 
-import com.example.StackExchange.json.Example;
+import com.example.StackExchange.model.Example;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -38,7 +35,24 @@ public class HelloWorld {
     }
   }
 
-  private String sendGet() throws Exception {
+  public static Example getExample(String name) {
+    try {
+      String json = sendGet();
+
+      ObjectMapper mapper = new ObjectMapper();
+      Example user = mapper.readValue(json, Example.class);
+
+      System.out.print(user.getItems().size());
+
+      return user;
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+
+  public static String sendGet() throws Exception {
 
     String url = "http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=java&site=stackoverflow";
     String answer = "";

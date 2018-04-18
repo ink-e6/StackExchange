@@ -1,4 +1,4 @@
-package com.example.StackExchange.json;
+package com.example.StackExchange.model;
 
 import java.util.HashMap;
 import java.util.List;
