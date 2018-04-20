@@ -9,8 +9,13 @@ function getAnswer() {
         "order": [[ 0, "asc" ]],
         "aoColumns": [
               { "mData": "creation_date" },
-              { "mData": "title" },
+              { "mData": "title",
+                "render": function ( mData, type, row, meta ) {
+                    return '<a href="' + row.link + '" target="_blank">' + mData+'</a>';
+              }},
               { "mData": "owner" },
+              { "mData": "link",
+                "visible": false}
         ]
     });
 
