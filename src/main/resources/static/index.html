@@ -10,10 +10,34 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="/js/datatable.js"></script>
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <script type="text/javascript">
+        function getAnswer(){
+            var question = document.getElementById("searchBox").value;
+            $.ajax({
+                type : 'POST',
+                url : "/controller/ItemController",
+                data: question;
+            });
+        }
+    </script>
 </head>
 
 <body>
-<h1>Items Table</h1>
+<h1>Stackowerflow search</h1>
+
+<div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <input id="searchBox" type="text" class="form-control input-lg" placeholder="Search..." />
+        <span class="input-group-btn">
+            <button class="btn btn-info btn-lg" type="button" onclick="getAnswer()">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </span>
+    </div>
+</div>
+
 <table id="itemsTable" class="display">
 
     <!-- Header Table -->

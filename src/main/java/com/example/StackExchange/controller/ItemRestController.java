@@ -4,12 +4,9 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-        import com.example.StackExchange.model.Item;
+import com.example.StackExchange.model.Item;
         import com.example.StackExchange.service.ItemService;
 
 @RestController
@@ -19,9 +16,9 @@ public class ItemRestController {
   private ItemService employeeService;
 
   @RequestMapping(path="/items", method=RequestMethod.GET)
-  public List<Item> getAllEmployees(){
+  public List<Item> getAllEmployees(@RequestParam(value = "title") String title){
 
-    List<Item> i = employeeService.getAllItems();
+    List<Item> i = employeeService.getAllItems(title);
     System.out.println(i.size());
 
     return i;

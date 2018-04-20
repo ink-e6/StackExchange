@@ -17,10 +17,10 @@ import static org.springframework.http.HttpHeaders.USER_AGENT;
 @RestController
 public class HelloWorld {
 
-  @RequestMapping("/hello")
-  public String sayHello(@RequestParam(value = "name") String name) {
+  @RequestMapping("/index.html")
+  public String sayHello(@RequestParam(value = "title") String title) {
     try {
-      String json = sendGet();
+      String json = sendGet(title);
 
       ObjectMapper mapper = new ObjectMapper();
       Example user = mapper.readValue(json, Example.class);
@@ -35,9 +35,9 @@ public class HelloWorld {
     }
   }
 
-  public static Example getExample(String name) {
+  public static Example getExample(String title) {
     try {
-      String json = sendGet();
+      String json = sendGet(title);
 
       ObjectMapper mapper = new ObjectMapper();
       Example user = mapper.readValue(json, Example.class);
@@ -52,9 +52,9 @@ public class HelloWorld {
     }
   }
 
-  public static String sendGet() throws Exception {
+  public static String sendGet(String title) throws Exception {
 
-    String url = "http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=java&site=stackoverflow";
+    String url = "http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=" + title + "&site=stackoverflow";
     String answer = "";
 
 

@@ -6,5 +6,5 @@ import com.example.StackExchange.model.Item;
 
 public interface ItemService {
 
-  public List<Item> getAllItems();
+  public List<Item> getAllItems(String title);
 }

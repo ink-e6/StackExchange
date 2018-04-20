@@ -16,9 +16,9 @@ public class ItemServiceImpl implements ItemService {
   private EmployeeRepository employeeRepository;*/
 
   @Override
-  public List<Item> getAllItems() {
+  public List<Item> getAllItems(String title) {
 //    return employeeRepository.findAll();
-    List<Item> i = HelloWorld.getExample("").getItems();
+    List<Item> i = HelloWorld.getExample(title).getItems();
     return i;
   }
 
