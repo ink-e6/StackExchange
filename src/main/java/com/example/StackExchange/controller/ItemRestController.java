@@ -16,7 +16,7 @@ public class ItemRestController {
   private ItemService employeeService;
 
   @RequestMapping(path="/items", method=RequestMethod.GET)
-  public List<Item> getAllEmployees(@RequestParam(value = "title") String title){
+  public List<Item> getAllEmployees(@RequestParam(value = "title", required = false) String title){
 
     List<Item> i = employeeService.getAllItems(title);
     System.out.println(i.size());

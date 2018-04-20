@@ -17,23 +17,23 @@ import static org.springframework.http.HttpHeaders.USER_AGENT;
 @RestController
 public class HelloWorld {
 
-  @RequestMapping("/index.html")
-  public String sayHello(@RequestParam(value = "title") String title) {
-    try {
-      String json = sendGet(title);
-
-      ObjectMapper mapper = new ObjectMapper();
-      Example user = mapper.readValue(json, Example.class);
-
-      System.out.print(user.getItems().size());
-
-      return json;
-
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "Get nothing.";
-    }
-  }
+//  @RequestMapping("/index.html")
+//  public String sayHello(@RequestParam(value = "title") String title) {
+//    try {
+//      String json = sendGet(title);
+//
+//      ObjectMapper mapper = new ObjectMapper();
+//      Example user = mapper.readValue(json, Example.class);
+//
+//      System.out.print(user.getItems().size());
+//
+//      return json;
+//
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//      return "Get nothing.";
+//    }
+//  }
 
   public static Example getExample(String title) {
     try {
