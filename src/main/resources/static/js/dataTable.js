@@ -8,12 +8,15 @@ function getAnswer() {
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],
         "aoColumns": [
-              { "mData": "creation_date" },
+              { "mData": "creation_date",
+                "width": "15%"},
               { "mData": "title",
+                "width": "70%",
                 "render": function ( mData, type, row, meta ) {
                     return '<a href="' + row.link + '" target="_blank">' + mData+'</a>';
               }},
-              { "mData": "owner" },
+              { "mData": "owner",
+                "width": "15%"},
               { "mData": "is_answered",
                 "visible": false},
               { "mData": "link",
