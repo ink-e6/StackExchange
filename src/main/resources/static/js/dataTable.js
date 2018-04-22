@@ -14,16 +14,19 @@ function getAnswer() {
                     return '<a href="' + row.link + '" target="_blank">' + mData+'</a>';
               }},
               { "mData": "owner" },
+              { "mData": "is_answered",
+                "visible": false},
               { "mData": "link",
                 "visible": false}
-        ]
+        ],
+        "createdRow": function ( row, data, index ) {
+                    if ( data["is_answered"] == true ) {
+                        $('td', row).addClass('lightGreen');
+                    }
+                }
     });
 
 $('#itemsTable').DataTable().ajax.reload();
-
-//    table.ajax.reload( function ( json ) {
-//        $('#myInput').val( json.lastInput );
-//    } );
 };
 
 $(document).ready( function () {
@@ -33,6 +36,6 @@ $(document).ready( function () {
         if (event.keyCode === 13) {
             document.getElementById("searchBtn").click();
         }
-});
-}
+    });
+    }
 );
