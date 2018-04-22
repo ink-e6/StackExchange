@@ -45,7 +45,7 @@ public class Item {
   @JsonProperty("last_activity_date")
   private Integer lastActivityDate;
   @JsonProperty("creation_date")
-  private Integer creationDate;
+  private String creationDate;
   @JsonProperty("last_edit_date")
   private Integer lastEditDate;
   @JsonProperty("question_id")
@@ -138,12 +138,12 @@ public class Item {
   }
 
   @JsonProperty("creation_date")
-  public Integer getCreationDate() {
+  public String getCreationDate() {
     return creationDate;
   }
 
   @JsonProperty("creation_date")
-  public void setCreationDate(Integer creationDate) {
+  public void setCreationDate(String creationDate) {
     this.creationDate = creationDate;
   }
 

@@ -1,6 +1,8 @@
 package com.example.StackExchange.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,9 +26,16 @@ public class ItemRestController {
     List<Item> i = employeeService.getAllItems(title);
     List<SimpleItem> simpleItems = new ArrayList<>();
 
+    SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy, hh:mm a");
+    Calendar calendar = Calendar.getInstance();
+    String creationDate;
+
     for(Item item:i){
-    SimpleItem temp = new SimpleItem(item.getOwner().getDisplayName(), item.getIsAnswered(), new Date(item.getCreationDate()).toString(), item.getLink(), item.getTitle());
-    simpleItems.add(temp);
+      creationDate = item.getCreationDate();
+      calendar.setTimeInMillis(Long.parseLong(creationDate) * 1000);
+      creationDate = formatter.format(calendar.getTime());
+      SimpleItem temp = new SimpleItem(item.getOwner().getDisplayName(), item.getIsAnswered(), creationDate.toString(), item.getLink(), item.getTitle());
+      simpleItems.add(temp);
     }
 
     System.out.println(i.size());
