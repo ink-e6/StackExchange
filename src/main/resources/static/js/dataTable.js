@@ -6,7 +6,7 @@ function getAnswer() {
         var table = $('#itemsTable').DataTable({
         "sAjaxSource": "/items?title="+question,
         "sAjaxDataProp": "",
-        "order": [[ 0, "asc" ]],
+        "order": [[ 0, "desc" ]],
         "aoColumns": [
               { "mData": "creation_date",
                 "width": "15%"},
