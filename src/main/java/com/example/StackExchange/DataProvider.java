@@ -1,10 +1,8 @@
 package com.example.StackExchange;
 
-import com.example.StackExchange.model.Example;
+import com.example.StackExchange.model.StackExchange;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +13,7 @@ import java.util.zip.GZIPInputStream;
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 @RestController
-public class HelloWorld {
+public class DataProvider {
 
 //  @RequestMapping("/index.html")
 //  public String sayHello(@RequestParam(value = "title") String title) {
@@ -23,7 +21,7 @@ public class HelloWorld {
 //      String json = sendGet(title);
 //
 //      ObjectMapper mapper = new ObjectMapper();
-//      Example user = mapper.readValue(json, Example.class);
+//      StackExchange user = mapper.readValue(json, StackExchange.class);
 //
 //      System.out.print(user.getItems().size());
 //
@@ -35,12 +33,12 @@ public class HelloWorld {
 //    }
 //  }
 
-  public static Example getExample(String title) {
+  public static StackExchange getStackExchange(String title) {
     try {
       String json = sendGet(title);
 
       ObjectMapper mapper = new ObjectMapper();
-      Example user = mapper.readValue(json, Example.class);
+      StackExchange user = mapper.readValue(json, StackExchange.class);
 
       System.out.print(user.getItems().size());
 
@@ -65,7 +63,7 @@ public class HelloWorld {
       // optional default is GET
       con.setRequestMethod("GET");
       con.setRequestProperty("Accept-Encoding", "gzip");
-      con.setRequestProperty("Content-Type", "application/Example; charset=utf-8");
+      con.setRequestProperty("Content-Type", "application/StackExchange; charset=utf-8");
 
       //add request header
       con.setRequestProperty("User-Agent", USER_AGENT);

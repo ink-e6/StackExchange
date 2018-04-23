@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "quota_remaining"
 })
 
-public class Example {
+public class StackExchange {
   @JsonProperty("items")
   private List<Item> items = null;
   @JsonProperty("has_more")

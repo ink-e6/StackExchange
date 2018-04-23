@@ -1,11 +1,9 @@
 package com.example.StackExchange.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.example.StackExchange.HelloWorld;
-import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import com.example.StackExchange.DataProvider;
+import org.springframework.stereotype.Service;
 
         import com.example.StackExchange.model.Item;
 
@@ -18,7 +16,7 @@ public class ItemServiceImpl implements ItemService {
   @Override
   public List<Item> getAllItems(String title) {
 //    return employeeRepository.findAll();
-    List<Item> i = HelloWorld.getExample(title).getItems();
+    List<Item> i = DataProvider.getStackExchange(title).getItems();
     return i;
   }
 
