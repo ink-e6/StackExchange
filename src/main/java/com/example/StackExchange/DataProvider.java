@@ -15,34 +15,16 @@ import static org.springframework.http.HttpHeaders.USER_AGENT;
 @RestController
 public class DataProvider {
 
-//  @RequestMapping("/index.html")
-//  public String sayHello(@RequestParam(value = "title") String title) {
-//    try {
-//      String json = sendGet(title);
-//
-//      ObjectMapper mapper = new ObjectMapper();
-//      StackExchange user = mapper.readValue(json, StackExchange.class);
-//
-//      System.out.print(user.getItems().size());
-//
-//      return json;
-//
-//    } catch (Exception e) {
-//      e.printStackTrace();
-//      return "Get nothing.";
-//    }
-//  }
-
   public static StackExchange getStackExchange(String title) {
     try {
       String json = sendGet(title);
 
       ObjectMapper mapper = new ObjectMapper();
-      StackExchange user = mapper.readValue(json, StackExchange.class);
+      StackExchange stackExchange = mapper.readValue(json, StackExchange.class);
 
-      System.out.print(user.getItems().size());
+      System.out.print(stackExchange.getItems().size());
 
-      return user;
+      return stackExchange;
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -50,30 +32,33 @@ public class DataProvider {
     }
   }
 
-  public static String sendGet(String title) throws Exception {
-
-    String url = "http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=" + title + "&site=stackoverflow";
+  private static String sendGet(String title) throws Exception {
+    String url = "http://api.stackexchange.com/2.2/search?order=desc&sort=activity&site=stackoverflow&intitle=";
     String answer = "";
+    String fullUrl = "";
 
+    if ((title == null) || (title.isEmpty())) {
+      return answer;
+    }
 
-    try{
-      URL obj = new URL(url);
+    fullUrl = url + title;
+
+    try {
+      URL obj = new URL(fullUrl);
       HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-      // optional default is GET
       con.setRequestMethod("GET");
       con.setRequestProperty("Accept-Encoding", "gzip");
       con.setRequestProperty("Content-Type", "application/StackExchange; charset=utf-8");
 
-      //add request header
       con.setRequestProperty("User-Agent", USER_AGENT);
 
       int responseCode = con.getResponseCode();
-      System.out.println("\nSending 'GET' request to URL : " + url);
+      System.out.println("\nSending 'GET' request to URL : " + fullUrl);
       System.out.println("Response Code : " + responseCode);
 
       BufferedReader in = new BufferedReader(
-              new InputStreamReader(new GZIPInputStream( con.getInputStream())));
+              new InputStreamReader(new GZIPInputStream(con.getInputStream())));
       String inputLine;
       StringBuffer response = new StringBuffer();
 
@@ -82,14 +67,9 @@ public class DataProvider {
       }
       in.close();
 
-      //print result
       System.out.println(response.toString());
       answer = response.toString();
-    }
-    catch (Exception ex){System.out.print("111");}
-
-    if (answer.isEmpty()){
-      answer = "Answer is empty.";
+    } catch (Exception ex) {
     }
 
     return answer;

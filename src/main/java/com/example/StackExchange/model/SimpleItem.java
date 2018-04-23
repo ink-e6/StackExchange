@@ -1,15 +1,16 @@
 
 package com.example.StackExchange.model;
 
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
-        import com.fasterxml.jackson.annotation.JsonAnyGetter;
-        import com.fasterxml.jackson.annotation.JsonAnySetter;
-        import com.fasterxml.jackson.annotation.JsonIgnore;
-        import com.fasterxml.jackson.annotation.JsonInclude;
-        import com.fasterxml.jackson.annotation.JsonProperty;
-        import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -35,12 +36,12 @@ public class SimpleItem {
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
   @JsonProperty("owner")
-  public String  getOwner() {
+  public String getOwner() {
     return owner;
   }
 
   @JsonProperty("owner")
-  public void setOwner(String  owner) {
+  public void setOwner(String owner) {
     this.owner = owner;
   }
 
@@ -55,12 +56,12 @@ public class SimpleItem {
   }
 
   @JsonProperty("creation_date")
-  public String  getCreationDate() {
+  public String getCreationDate() {
     return creationDate;
   }
 
   @JsonProperty("creation_date")
-  public void setCreationDate(String  creationDate) {
+  public void setCreationDate(String creationDate) {
     this.creationDate = creationDate;
   }
 

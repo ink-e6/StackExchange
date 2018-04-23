@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.StackExchange.model.Item;
-        import com.example.StackExchange.service.ItemService;
+import com.example.StackExchange.service.ItemService;
 
 @RestController
 public class ItemRestController {
@@ -20,8 +20,8 @@ public class ItemRestController {
   @Autowired
   private ItemService employeeService;
 
-  @RequestMapping(path="/items", method=RequestMethod.GET)
-  public List<SimpleItem> getAllEmployees(@RequestParam(value = "title", required = false) String title){
+  @RequestMapping(path = "/items", method = RequestMethod.GET)
+  public List<SimpleItem> getAllEmployees(@RequestParam(value = "title", required = false) String title) {
 
     List<Item> i = employeeService.getAllItems(title);
     List<SimpleItem> simpleItems = new ArrayList<>();
@@ -30,7 +30,7 @@ public class ItemRestController {
     Calendar calendar = Calendar.getInstance();
     String creationDate;
 
-    for(Item item:i){
+    for (Item item : i) {
       creationDate = item.getCreationDate();
       calendar.setTimeInMillis(Long.parseLong(creationDate) * 1000);
       creationDate = formatter.format(calendar.getTime());
