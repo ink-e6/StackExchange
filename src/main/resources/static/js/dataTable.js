@@ -42,3 +42,16 @@ $(document).ready( function () {
     });
     }
 );
+
+$(document).ready(function() {
+    var table = $('#itemsTable').DataTable({
+            "aoColumns": [
+                  { "width": "15%"},
+                  { "width": "70%"},
+                  { "width": "15%"},
+                  { "visible": false},
+                  { "visible": false}]});
+
+    table.row.add( [ '', '', '', '', '' ] )
+    .draw();
+})
