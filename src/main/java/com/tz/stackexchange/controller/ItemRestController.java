@@ -1,18 +1,17 @@
-package com.example.StackExchange.controller;
+package com.tz.stackexchange.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 
-import com.example.StackExchange.model.SimpleItem;
+import com.tz.stackexchange.model.SimpleItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.StackExchange.model.Item;
-import com.example.StackExchange.service.ItemService;
+import com.tz.stackexchange.model.Item;
+import com.tz.stackexchange.service.ItemService;
 
 @RestController
 public class ItemRestController {

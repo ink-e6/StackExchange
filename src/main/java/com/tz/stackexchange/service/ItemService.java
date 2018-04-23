@@ -1,8 +1,8 @@
-package com.example.StackExchange.service;
+package com.tz.stackexchange.service;
 
 import java.util.List;
 
-import com.example.StackExchange.model.Item;
+import com.tz.stackexchange.model.Item;
 
 public interface ItemService {
 

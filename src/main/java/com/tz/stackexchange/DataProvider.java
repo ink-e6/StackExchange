@@ -1,6 +1,6 @@
-package com.example.StackExchange;
+package com.tz.stackexchange;
 
-import com.example.StackExchange.model.StackExchange;
+import com.tz.stackexchange.model.StackExchange;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.RestController;
 

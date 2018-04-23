@@ -1,12 +1,12 @@
-package com.example.StackExchange.service;
+package com.tz.stackexchange.service;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import com.example.StackExchange.DataProvider;
+import com.tz.stackexchange.DataProvider;
 import org.springframework.stereotype.Service;
 
-import com.example.StackExchange.model.Item;
+import com.tz.stackexchange.model.Item;
 
 @Service("itemService")
 public class ItemServiceImpl implements ItemService {

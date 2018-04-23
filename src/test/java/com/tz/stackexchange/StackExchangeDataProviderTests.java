@@ -1,4 +1,4 @@
-package com.example.StackExchange;
+package com.tz.stackexchange;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package com.example.StackExchange.model;
+package com.tz.stackexchange.model;
 
 import java.util.HashMap;
 import java.util.List;
